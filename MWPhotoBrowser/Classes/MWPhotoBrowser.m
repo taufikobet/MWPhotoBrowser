@@ -390,6 +390,10 @@
         }
         _viewHasAppearedInitially = YES;
     }
+    
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithHue:0.566 saturation:0.762 brightness:0.858 alpha:1];
+    NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 
 }
 
@@ -1519,7 +1523,11 @@
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8")) {
                         self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
                     }
-                    [self presentViewController:self.activityViewController animated:YES completion:nil];
+                    [self presentViewController:self.activityViewController animated:YES completion:^{
+                        [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+                        NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, nil];
+                        [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
+                    }];
                     
                 }
                 
