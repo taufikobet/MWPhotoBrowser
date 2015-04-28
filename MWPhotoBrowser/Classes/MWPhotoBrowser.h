@@ -39,6 +39,9 @@
 
 @end
 
+typedef void(^presentCompletionBlock)();
+typedef void(^willAppearCompletionBlock)();
+
 @interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
@@ -52,6 +55,9 @@
 @property (nonatomic) BOOL startOnGrid;
 @property (nonatomic) NSUInteger delayToHideElements;
 @property (nonatomic, readonly) NSUInteger currentIndex;
+
+@property (nonatomic, copy) presentCompletionBlock presentCompletionBlock;
+@property (nonatomic, copy) willAppearCompletionBlock willAppearCompletionBlock;
 
 // Init
 - (id)initWithPhotos:(NSArray *)photosArray  __attribute__((deprecated("Use initWithDelegate: instead"))); // Depreciated
