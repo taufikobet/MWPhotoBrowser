@@ -1521,7 +1521,7 @@
                         self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
                     }
                     [self presentViewController:self.activityViewController animated:YES completion:^{
-                        if (wself.presentCompletionBlock) wself.presentCompletionBlock();
+                        if (weakSelf.presentCompletionBlock) weakSelf.presentCompletionBlock();
                     }];
                     
                 }
