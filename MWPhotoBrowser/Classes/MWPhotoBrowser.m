@@ -391,11 +391,7 @@
         _viewHasAppearedInitially = YES;
     }
     
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithHue:0.566 saturation:0.762 brightness:0.858 alpha:1];
-    NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, [UIFont fontWithName:@"AvenirNext-Medium" size:19.0f], NSFontAttributeName, nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
-
+    if (self.willAppearCompletionBlock) self.willAppearCompletionBlock();
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -1525,10 +1521,7 @@
                         self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
                     }
                     [self presentViewController:self.activityViewController animated:YES completion:^{
-                        [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
-                        NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, nil];
-                        [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
-                        [[UIBarButtonItem appearance] setTintColor:[UIColor blueColor]];
+                        if (wself.presentCompletionBlock) wself.presentCompletionBlock();
                     }];
                     
                 }
